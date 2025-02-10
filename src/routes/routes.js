@@ -6,6 +6,7 @@ import usersController from "./mhRoutes/users/users.controller.js";
 import userstatsController from "./mhRoutes/userstats/userstats.controller.js";
 import linkController from "./mhRoutes/link/link.controller.js";
 import clienttelemetryController from "./mhRoutes/clienttelemetry/clienttelemetry.controller.js";
+import adminRouter from "./mhRoutes/admin/admin.controller.js";
 
 import androidController from "./directorRoutes/android/android.controller.js";
 
@@ -20,7 +21,8 @@ const apiMh = Router()
   .use("/users", usersController)
   .use("/userstats", userstatsController)
   .use("/link", linkController)
-  .use("/clienttelemetry", clienttelemetryController);
+  .use("/clienttelemetry", clienttelemetryController)
+  .use("/mh/admin", adminRouter);
 
 const apiDirector = Router().use("/android", androidController);
 
