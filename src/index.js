@@ -35,6 +35,7 @@ if (fs.existsSync("latest.log"))
 
 const app = express();
 const PORT = process.env.LISTEN_PORT || config.listenPort;
+const IP = process.env.IP || config.ip || '0.0.0.0';
 
 // Disable unnecessary Express features
 app.disable("x-powered-by");
@@ -105,7 +106,7 @@ app.use((err, req, res, next) => {
   res.status(500).send("Do'h! Error 500");
 });
 
-app.listen(PORT, () => { 
+app.listen(PORT, IP, () => { 
   debugWithTime(0, `Listening on port ${PORT}`);
   global.running = true; // For the dashboard
   global.lobbyTime = 0; // 0 for current time
